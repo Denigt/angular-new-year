@@ -1,0 +1,38 @@
+.message {
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 15px;
+    padding: 5px 20px;
+
+    background-color: floralwhite;
+    box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+
+    pre {
+        display: flex;
+        text-wrap: balance;
+        position: relative;
+        
+        animation-name: clip-text;
+        animation-delay: 300ms;
+        animation-iteration-count: 1;
+        animation-duration: 850ms;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+    }
+}
+
+@keyframes clip-text {
+  from {
+    opacity: 0.3;
+    clip-path: inset(0 100% 0 0);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    filter: blur(0px);
+  }
+}
