@@ -5,12 +5,15 @@
       Animated SVG
     </div>
   </header>
-  <main class="flex-column">
-    <h2>Name</h2>
-    <article class="message-container">
-      <div class="message">
-        Message
-      </div>
-    </article>
-  </main>
+  @if (name) {
+    <main class="flex-column">
+      <h2>{{name}}</h2>
+      <article class="message-container">
+        <div class="message">
+          <!--preformated text-->
+          <pre>{{message}}</pre>
+        </div>
+      </article>
+    </main>
+  }
 </div>
