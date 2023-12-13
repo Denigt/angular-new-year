@@ -1,0 +1,54 @@
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    
+    height: 100%;
+}
+
+.flex-column {
+    display: flex;
+
+    flex-direction: column;
+}
+
+header {
+    flex: 1 0 60%;
+
+    h1 {
+        margin: 0;
+        padding: 15px;
+
+        background-color: red;
+    }
+
+    .cover-container {
+        flex: 1 0 auto;
+        background-color: yellow;
+    }
+}
+
+main {
+    flex: 1 0 40%;
+
+    h2 {
+        margin: 0;
+        padding: 10px;
+
+        background-color: blue;
+    }
+
+    .message-container {
+        flex: 1 0 auto;
+        background-color: green;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .flex-row {
+        flex-direction: column;
+
+        min-height: 100vh;
+        height: unset;
+    }
+}
