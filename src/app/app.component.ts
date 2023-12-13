@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common'
 import { ActivatedRoute, RouterOutlet } from '@angular/router'
 import { MD5 } from 'crypto-js'
 import data from '../assets/greetings.json'
+import { MessageComponent } from './components/message/message.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, MessageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

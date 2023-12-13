@@ -9,10 +9,7 @@
     <main class="flex-column">
       <h2>{{name}}</h2>
       <article class="message-container">
-        <div class="message">
-          <!--preformated text-->
-          <pre>{{message}}</pre>
-        </div>
+        <app-message [message]="message"></app-message>
       </article>
     </main>
   }
