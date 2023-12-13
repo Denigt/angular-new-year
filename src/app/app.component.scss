@@ -1,9 +1,8 @@
-
 .flex-row {
     display: flex;
     flex-direction: row;
-    
-    height: 100%;
+
+    min-height: 100%;
 }
 
 .flex-column {
@@ -33,9 +32,13 @@ main {
 
     h2 {
         margin: 0;
-        padding: 10px;
+        padding: 10px 30px;
 
-        background-color: blue;
+        font-size: 2em;
+
+        text-align: end;
+
+        animation: color-text 15s infinite;
     }
 
     .message-container {
@@ -43,11 +46,57 @@ main {
     }
 }
 
-@media screen and (max-width: 780px) {
+@keyframes color-text {
+    0% {
+        color: mediumslateblue;
+        filter: blur(0.4px);
+    }
+
+    10% {
+        filter: blur(0px);
+    }
+
+    25% {
+        color: coral;
+        filter: blur(0.4px);
+    }
+
+    35% {
+        filter: blur(0px);
+    }
+
+    50% {
+        color: deeppink;
+        filter: blur(0.4px);
+    }
+
+    60% {
+        filter: blur(0px);
+    }
+
+    75% {
+        color: gold;
+        filter: blur(0.4px);
+    }
+
+    85% {
+        filter: blur(0px);
+    }
+    
+    100% {
+        color: mediumslateblue;
+        filter: blur(0.4px);        
+    }
+}
+
+@media screen and (max-width: 850px) {
     .flex-row {
         flex-direction: column;
 
         min-height: 100vh;
         height: unset;
+    }
+    h1, h2 {
+        text-align: center !important;
     }
 }
