@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: row;
 
-    min-height: 100%;
+    height: 100vh;
 }
 
 .flex-column {
     display: flex;
-
     flex-direction: column;
+
+    height: 100vh;
 }
 
 header {
@@ -22,6 +23,11 @@ header {
     }
 
     .cover-container {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: end;
+
         flex: 1 0 auto;
         background-color: yellow;
     }
@@ -42,7 +48,11 @@ main {
     }
 
     .message-container {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
+    }
+
+    app-gift {
+        padding: 10vh 0;
     }
 }
 

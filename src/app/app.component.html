@@ -1,9 +1,7 @@
 <div class="flex-row">
   <header class="flex-column">
     <h1>Feliz año</h1>
-    <div class="cover-container">
-      Animated SVG
-    </div>
+    <app-tree />
   </header>
   
   @if (name) {
@@ -12,6 +10,7 @@
       <article class="message-container">
         <app-message [message]="message"></app-message>
       </article>
+      <app-gift />
     </main>
   }
 </div>

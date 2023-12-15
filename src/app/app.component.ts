@@ -4,11 +4,13 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router'
 import { MD5 } from 'crypto-js'
 import data from '../assets/greetings.json'
 import { MessageComponent } from './components/message/message.component'
+import { TreeComponent } from './components/svg/tree/tree.component'
+import { GiftComponent } from './components/svg/gift/gift.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MessageComponent],
+  imports: [CommonModule, RouterOutlet, MessageComponent, TreeComponent, GiftComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
