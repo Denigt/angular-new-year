@@ -1,27 +1,56 @@
-# NewYear
+# New Year Application
+
+- [New Year Application](#new-year-application)
+  - [Description](#description)
+  - [How to use](#how-to-use)
+    - [Development server](#development-server)
+    - [Build](#build)
+    - [Needed configuration](#needed-configuration)
+
+## Description
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
-## Development server
+With this application New Year's Greetings can be sent to family or friends only with a simple URL and code
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## How to use
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Development server
 
-## Build
+Start the server:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`npm run start` 
 
-## Running unit tests
+Navigate to the server:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`http://localhost:4200/`
 
-## Running end-to-end tests
+The application will automatically reload if you change any of the source files.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Build
 
-## Further help
+Build the application:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`npm run build`
+ 
+Find the generated build at:
+
+`dist/new-year`
+
+### Needed configuration
+
+You must create a `Greetings.json` file with the follow format:
+
+```json
+[
+    {
+        "name": "Person to greet",
+        "message": "A message to be displayed"
+    }
+]
+```
+
+When this file will be ready you shoud generate the MD5 code of the name and then call your page in this way:
+
+`{$schema}://{$host}/?code={$Your_MD5_code}`
