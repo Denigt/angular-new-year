@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core'
+import { CommonModule, isPlatformBrowser } from '@angular/common'
 import { ActivatedRoute, RouterOutlet } from '@angular/router'
 import { MD5 } from 'crypto-js'
 import data from '../assets/greetings.json'
 import { MessageComponent } from './components/message/message.component'
 import { TreeComponent } from './components/svg/tree/tree.component'
 import { GiftComponent } from './components/svg/gift/gift.component'
+import { ConfettiService } from './services/confetti.service'
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,13 @@ export class AppComponent implements OnInit {
   title = 'Feliz año'
   private code: string
 
-  constructor (public route: ActivatedRoute) {}
+  constructor (public route: ActivatedRoute, private confettiSv: ConfettiService,
+    @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit (): void {
+    if (isPlatformBrowser(this.platformId))
+      this.confettiSv.snowAnimationFrame();
+
     data.forEach(element => {
       console.log(MD5(element.name).toString())
     })
