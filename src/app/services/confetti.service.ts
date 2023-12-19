@@ -26,7 +26,8 @@ export class ConfettiService {
       shapes: ['circle'],
       gravity: this.random(0.4, 0.6),
       scalar: this.random(0.4, 1),
-      drift: this.random(-0.4, 0.4)
+      drift: this.random(-0.4, 0.4),
+      zIndex: -1
     });
   
     requestAnimationFrame(this.snowAnimationFrame.bind(this));
