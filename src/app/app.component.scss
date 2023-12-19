@@ -36,6 +36,8 @@ header {
 main {
     flex: 1 0 40%;
 
+    overflow: hidden;
+
     h2 {
         margin: 0;
         padding: 10px 30px;

@@ -15,6 +15,9 @@ svg {
   padding: var(--padding, inherit);
   margin: var(--margin, inherit);
 
+  transform-origin: 50% 50%;
+  animation: swing 3s infinite ease-in-out;
+
   g {
     fill-opacity: 0;
     stroke-dashoffset: 850;
@@ -42,5 +45,17 @@ svg {
     to {
       fill-opacity: 1;
     }
+  }
+
+  @keyframes swing {
+      0% {
+          transform: rotate(0deg);
+      }
+      50% {
+          transform: rotate(15deg);
+      }
+      100% {
+          transform: rotate(0deg);
+      }
   }
 }
