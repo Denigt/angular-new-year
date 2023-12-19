@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core'
-import { CommonModule, isPlatformBrowser } from '@angular/common'
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common'
 import { ActivatedRoute, RouterOutlet } from '@angular/router'
 import { MD5 } from 'crypto-js'
 import data from '../assets/greetings.json'
@@ -26,9 +26,10 @@ export class AppComponent implements OnInit {
     if (isPlatformBrowser(this.platformId))
       this.confettiSv.snowAnimationFrame();
 
-    data.forEach(element => {
-      console.log(MD5(element.name).toString())
-    })
+    if (isPlatformServer(this.platformId))
+      data.forEach(element => {
+        console.log(`${element.name} -- ${MD5(element.name).toString()}`)
+      })
 
     this.route.queryParamMap.subscribe((params) => {
       this.code = params.get('code')
