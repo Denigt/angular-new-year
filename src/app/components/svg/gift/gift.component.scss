@@ -1,17 +1,46 @@
 :host {
-    display: contents;
+  display: contents;
 }
 
 svg {
-    display: block;
+  display: block;
 
-    width: 100%;
-    height: 100%;
-    
-    aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
 
-    height: var(--height, inherit);
-    width: var(--width, inherit);
-    padding: var(--padding, inherit);
-    margin: var(--margin, inherit);
+  aspect-ratio: 1/1;
+
+  height: var(--height, inherit);
+  width: var(--width, inherit);
+  padding: var(--padding, inherit);
+  margin: var(--margin, inherit);
+
+  g {
+    fill-opacity: 0;
+    stroke-dashoffset: 850;
+    stroke-dasharray: 850;
+
+    path.tape,
+    path.box {
+      animation: draw var(--box-duration) linear forwards,
+        fill-in var(--fill-duration) var(--box-duration) linear forwards;
+    }
+
+    path.full-bow {
+      animation: draw var(--bow-duration) var(--bow-delay) linear forwards,
+        fill-in var(--fill-duration) var(--bow-delay) linear forwards;
+    }
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fill-in {
+    to {
+      fill-opacity: 1;
+    }
+  }
 }
