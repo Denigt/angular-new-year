@@ -7,11 +7,12 @@ import { MessageComponent } from './components/message/message.component'
 import { TreeComponent } from './components/svg/tree/tree.component'
 import { GiftComponent } from './components/svg/gift/gift.component'
 import { ConfettiService } from './services/confetti.service'
+import { NewYearComponent } from './components/svg/new-year/new-year.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MessageComponent, TreeComponent, GiftComponent],
+  imports: [CommonModule, RouterOutlet, MessageComponent, TreeComponent, GiftComponent, NewYearComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
