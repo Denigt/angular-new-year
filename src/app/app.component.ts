@@ -1,13 +1,12 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core'
 import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common'
 import { ActivatedRoute, RouterOutlet } from '@angular/router'
-import { MD5 } from 'crypto-js'
-import data from '../assets/greetings.json'
 import { MessageComponent } from './components/message/message.component'
 import { TreeComponent } from './components/svg/tree/tree.component'
 import { GiftComponent } from './components/svg/gift/gift.component'
 import { ConfettiService } from './services/confetti.service'
 import { NewYearComponent } from './components/svg/new-year/new-year.component'
+import { GreetingService } from './services/greeting.service'
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,10 @@ export class AppComponent implements OnInit {
   title = 'Feliz año'
   private code: string
 
-  constructor (public route: ActivatedRoute, private confettiSv: ConfettiService,
+  constructor (
+    public route: ActivatedRoute, 
+    private confettiSv: ConfettiService,
+    private greetingSv: GreetingService,
     @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit (): void {
@@ -28,8 +30,8 @@ export class AppComponent implements OnInit {
       this.confettiSv.snowAnimationFrame();
 
     if (isPlatformServer(this.platformId))
-      data.forEach(element => {
-        console.log(`${element.name} -- ${MD5(element.name).toString()}`)
+      this.greetingSv.list().forEach(element => {
+        console.log(`${element.name} -- ${element.code}`)
       })
 
     this.route.queryParamMap.subscribe((params) => {
@@ -38,10 +40,10 @@ export class AppComponent implements OnInit {
   }
 
   get name (): string {
-    return data.find(element => MD5(element.name).toString() === this.code)?.name
+    return this.greetingSv.get(this.code)?.name
   }
 
   get message (): string {
-    return data.find(element => MD5(element.name).toString() === this.code)?.message
+    return this.greetingSv.get(this.code)?.message
   }
 }
