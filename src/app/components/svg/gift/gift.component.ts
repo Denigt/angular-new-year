@@ -10,13 +10,13 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class GiftComponent {
   @HostBinding('style.--box-duration')
   @Input()
-  boxDuration = '3s';
+  boxDuration = '2s';
   @HostBinding('style.--bow-delay')
   @Input()
   bowDelay = this.boxDuration.split('s')[0] + 's';
   @HostBinding('style.--bow-duration')
   @Input()
-  bowDuration = '2s';
+  bowDuration = '1.5s';
   @HostBinding('style.--fill-duration')
   @Input()
   fillDuration = '2s';
