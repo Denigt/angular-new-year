@@ -11,11 +11,14 @@ svg {
   width: var(--width, inherit);
   padding: var(--padding, inherit);
   margin: var(--margin, inherit);
+    
+  max-height: var(--max-height, inherit);
+  max-width: var(--max-width, inherit);
+  min-height: var(--min-height, inherit);
+  min-width: var(--min-width, inherit);
 
   g {
     fill-opacity: 0;
-    // animation: fill-in var(--fill-duration) var(--fill-delay) ease-in-out
-    //   forwards;
     stroke-dashoffset: 2000;
     stroke-dasharray: 2000;
 
