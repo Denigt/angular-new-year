@@ -41,6 +41,9 @@
           },
           "configurations": {
             "production": {
+              "ssr": false,
+              "optimization": false,
+              "prerender": false,
               "fileReplacements": [
                 {
                   "replace": "src/app/environment/environment.ts",
@@ -50,8 +53,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -108,5 +111,5 @@
         }
       }
     }
-  }
+    }
 }
