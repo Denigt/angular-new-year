@@ -12,7 +12,7 @@ export class ConfettiService {
     skew: 1,
   };
 
-  snowAnimationFrame() {;
+  snow(color: string = '#ffffff') {;
     this.snowConfig.skew =  Math.max(0.8, this.snowConfig.skew - 0.001);
 
     confetti({
@@ -22,7 +22,7 @@ export class ConfettiService {
         x: Math.random(),
         y: (Math.random() * this.snowConfig.skew) - 0.2
       },
-      colors: ['#000000'],
+      colors: [color],
       shapes: ['circle'],
       gravity: this.random(0.4, 0.6),
       scalar: this.random(0.4, 1),
@@ -30,7 +30,20 @@ export class ConfettiService {
       zIndex: -1
     });
   
-    requestAnimationFrame(this.snowAnimationFrame.bind(this));
+    requestAnimationFrame(this.snow.bind(this, color));
+  }
+
+  confetti(position: number[]) {
+    confetti({
+      particleCount: 400,
+      startVelocity: 30,
+      spread: 360,
+      zIndex: 1000,
+      origin: {
+        x: position[0],
+        y: position[1]
+      }	
+    });
   }
 
   random(min: number, max: number): number {
