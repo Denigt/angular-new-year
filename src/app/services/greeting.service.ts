@@ -31,7 +31,11 @@ export class GreetingService {
         try {
           return { 
             name: this.decodeUtf8(element.name),
-            message: this.decodeUtf8(element.message)
+            message: this.decodeUtf8(element.message),
+            gift: {
+              message: this.decodeUtf8(element.gift?.message),
+              input: element.gift?.input
+            }
           }
         } catch (error) {
           return element
@@ -41,7 +45,9 @@ export class GreetingService {
     } else return data
   }
 
-  private decodeUtf8(text: string): string {
+  private decodeUtf8(text: any): string {
+    if (typeof text !== 'string') return text
+
     return decodeURIComponent(
       atob(text).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
@@ -52,4 +58,8 @@ export class GreetingService {
 export interface Greeting {
   name: string
   message: string
+  gift?: {
+    message: string
+    input: boolean
+  }
 }
