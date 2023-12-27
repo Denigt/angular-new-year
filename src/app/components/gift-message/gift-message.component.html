@@ -2,6 +2,9 @@
     <label [for]="id">
         <span>{{message}}</span>
     </label>
-    <input [id]="id" type="text" [value]="value" (onValueChange)="onValueChange($event)"/>
-    <button type="submit"></button>
+
+    @if (showInput) {
+        <input [id]="id" type="text" [value]="value" (onValueChange)="onValueChange($event)"/>
+        <button type="submit"></button>
+    }
 </form>

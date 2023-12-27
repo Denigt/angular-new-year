@@ -3,6 +3,9 @@
 }
 
 form {
+    opacity: 0;
+    filter: blur(25px);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,6 +18,8 @@ form {
     background-color: floralwhite;
     box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
+
+    animation: appear 750ms forwards linear;
 
     span {
         display: flex;
@@ -62,6 +67,18 @@ form {
         cursor: pointer;
     }
 }
+
 *::first-letter {
     font-weight: bold;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        filter: blur(25px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
