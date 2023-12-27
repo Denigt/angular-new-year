@@ -31,7 +31,6 @@ export class GiftMessageComponent {
     event.preventDefault()
     event.stopPropagation()
     
-    console.log('submit')
     this.send.emit()
   }
 }
