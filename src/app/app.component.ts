@@ -6,16 +6,20 @@ import { GiftComponent } from './components/svg/gift/gift.component'
 import { ConfettiService } from './services/confetti.service'
 import { NewYearComponent } from './components/svg/new-year/new-year.component'
 import { GreetingService } from './services/greeting.service'
+import { GiftMessageComponent } from './components/gift-message/gift-message.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, MessageComponent, TreeComponent, GiftComponent, NewYearComponent],
+  imports: [CommonModule, MessageComponent, TreeComponent, GiftComponent, NewYearComponent, GiftMessageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'Feliz año'
+  isGiftOpen = false
+  wish = ''
+
   private code: string
 
   constructor (
@@ -25,7 +29,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit (): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.confettiSv.snowAnimationFrame();
+      this.confettiSv.snow('#000000');
       this.code = new URLSearchParams(window.location.search).get('code') || undefined
     }
 
@@ -41,5 +45,16 @@ export class AppComponent implements OnInit {
 
   get message (): string {
     return this.greetingSv.get(this.code)?.message
+  }
+
+  get gift (): { message: string, input: boolean } | undefined {
+    return this.greetingSv.get(this.code)?.gift
+  }
+
+  showGift(event: MouseEvent): void {
+    if (isPlatformBrowser(this.platformId) && this.gift) {
+      this.confettiSv.confetti([event.clientX / window.innerWidth, event.clientY / window.innerHeight])
+      this.isGiftOpen = true
+    }
   }
 }

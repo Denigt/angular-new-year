@@ -15,24 +15,8 @@
 header {
     flex: 1 0 60%;
 
-    h1 {
-        margin: 0;
-        padding: 15px;
-
-        background-color: red;
-    }
-
-    .cover-container {
-        display: flex;
-        flex-direction: column;
-
-        justify-content: end;
-
-        flex: 1 0 auto;
-        background-color: yellow;
-    }
-
     app-new-year {
+        padding: 15px;
         height: 13vh;
     }
 
@@ -44,7 +28,7 @@ header {
 main {
     flex: 1 0 40%;
 
-    overflow: hidden;
+    overflow-y: scroll;
 
     h2 {
         margin: 0;
@@ -61,10 +45,11 @@ main {
         flex: 0 0 auto;
     }
 
-    app-gift {
+    app-gift, app-gift-message {
         margin: auto;
-        padding: 10vh 0;
+        padding: 85px 0;
         width: 70%;
+        min-height: 350px;
     }
 }
 
@@ -118,7 +103,10 @@ main {
         min-height: 100vh;
         height: unset;
     }
-    h1, h2 {
+    h2 {
         text-align: center !important;
+    }
+    main {
+        overflow-y: hidden;
     }
 }

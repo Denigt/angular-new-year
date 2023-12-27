@@ -10,7 +10,12 @@
       <article class="message-container">
         <app-message [message]="message"></app-message>
       </article>
-      <app-gift />
+
+      @if (!isGiftOpen) {
+        <app-gift (click)="showGift($event)"/>
+      } @else {
+        <app-gift-message [message]="gift.message" [showInput]="gift.input" [(value)]="wish" />
+      }
     </main>
   }
 </div>

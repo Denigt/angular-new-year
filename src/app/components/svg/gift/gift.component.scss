@@ -11,6 +11,11 @@ svg {
   width: var(--width, inherit);
   padding: var(--padding, inherit);
   margin: var(--margin, inherit);
+    
+  max-height: var(--max-height, inherit);
+  max-width: var(--max-width, inherit);
+  min-height: var(--min-height, inherit);
+  min-width: var(--min-width, inherit);
 
   transform-origin: 50% 50%;
   animation: swing 3s infinite ease-in-out;
