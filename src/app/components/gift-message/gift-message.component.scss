@@ -1,0 +1,67 @@
+:host {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    margin: 15px;
+    padding: 15px 20px;
+
+    background-color: floralwhite;
+    box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+
+    span {
+        display: flex;
+        
+        white-space: pre-line;
+        text-align: center;
+        
+        margin: 10px 10px 10px 0;
+    }
+
+    input {
+        outline: none;
+
+        padding: 8px 12px;
+        margin: 10px;
+        width: 80%;
+
+        border: none;
+        border-bottom: 2px solid black;
+
+        box-shadow: inset 1px 3px 6px 1px floralwhite;
+
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    button {
+        border: 1px solid wheat;
+        border-radius: 50%;
+
+        background-origin: content-box;
+        background-color: transparent;
+        background-image: url('../../../assets/icons/send.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        height: 30px;
+        width: 30px;
+
+        cursor: pointer;
+    }
+}
+*::first-letter {
+    font-weight: bold;
+}
